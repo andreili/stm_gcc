@@ -3,13 +3,13 @@
 int strlen(const char* str)
 {
 	int len = 0;
-	while (*str++ != '\0')
+	while (*str++)
 		++len;
 	return len;
 }
 
 void memcpy(char* dst, const char* src, int len)
 {
-	for (int i=0 ; i<len ; ++i)
+	while (len--)
 		*dst++ = *src++;
 }

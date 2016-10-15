@@ -60,7 +60,7 @@ void inline UART::irq_proc()
 void UART::recv_data()
 {
 	m_rx_buf[m_rx_pos++] = USART1->DR;
-	++m_rx_size;
+	m_rx_size = m_rx_pos;
 }
 
 void UART::send_data()
