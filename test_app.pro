@@ -16,7 +16,7 @@ unix:EXT = elf
 win32:EXT = elf.exe
 
 createlist.target = all
-createlist.commands += arm-none-eabi-objdump -S $${OUT_PWD}/$${APP}.$${EXT} > $$join(APP,,,".lst") && arm-none-eabi-objcopy -Obinary $${OUT_PWD}/$${APP}.$${EXT} $${OUT_PWD}/$${APP}.bin && arm-none-eabi-nm -nalS --size-sort $${OUT_PWD}/$${APP}.$${EXT} | tail
+createlist.commands += arm-none-eabi-objdump -S $${OUT_PWD}/$${APP}.$${EXT} > $$join(APP,,,".lst") && arm-none-eabi-objcopy -Obinary $${OUT_PWD}/$${APP}.$${EXT} $${OUT_PWD}/$${APP}.bin && arm-none-eabi-nm -nalS --size-sort $${OUT_PWD}/$${APP}.$${EXT} | tail && arm-none-eabi-size $${OUT_PWD}/$${APP}.$${EXT}
 QMAKE_EXTRA_TARGETS += createlist
 
 INCLUDEPATH += ./include/
