@@ -203,6 +203,7 @@ SECTIONS
         /* This is used by the startup in order to initialize the .data secion */
         _sdata = . ;
         
+	    *(.isr_vector2)
         *(.data)
         *(.data.*)
 
