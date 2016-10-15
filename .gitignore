@@ -1,0 +1,21 @@
+# Compiled Object files
+*.o
+*.obj
+obj
+
+# Executables
+*.exe
+*.out
+*.app
+*.elf
+
+# Qt files
+*.user
+build-*
+*.res
+*.user*
+*build*
+Debug/*
+doxygen/*
+latex/*
+b/*
