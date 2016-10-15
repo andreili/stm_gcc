@@ -23,8 +23,8 @@ void RCCInit(void)
 	
 	/* HCLK = SYSCLK */
 	RCC->CFGR |=	RCC_CFGR_HPRE_DIV1 |
-					RCC_CFGR_PPRE2_DIV1 | /* PCLK2 = HCLK */
-					RCC_CFGR_PPRE1_DIV2;  /* PCLK1 = HCLK */
+					RCC_CFGR_PPRE2_DIV1 |	/* PCLK2 = HCLK */
+					RCC_CFGR_PPRE1_DIV2;	/* PCLK1 = HCLK */
 	/*  PLL configuration: PLLCLK = HSE * 9 = 72 MHz */
 	RCC->CFGR &= ~(RCC_CFGR_PLLSRC | 
 					RCC_CFGR_PLLXTPRE | 

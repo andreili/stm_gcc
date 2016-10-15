@@ -15,14 +15,16 @@ int main()
 
 void ISR::SysTickTimer()
 {
-	++f;
-    if (f > 500)
-    {
-        IO::cpu_on();
-    }
-    if (f > 1000)
-    {
-        IO::cpu_off();
-        f = 0;
-    }
+	switch (f++)
+	{
+	case 0:
+		IO::cpu_on();
+		break;
+	case 50:
+		IO::cpu_off();
+		break;
+	case 1000:
+		f = 0;
+		break;
+	}
 }
