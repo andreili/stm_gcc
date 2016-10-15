@@ -10,7 +10,7 @@ char	UART::m_rx_buf[UART_BUF_SIZE];
 int		UART::m_rx_size;
 int		UART::m_rx_pos;
 
-char*	UART::m_tx_buf;
+char	UART::m_tx_buf[UART_BUF_SIZE];
 int		UART::m_tx_size;
 int		UART::m_tx_pos;
 
@@ -20,10 +20,10 @@ void UART::init()
 					RCC_APB2ENR_IOPAEN;
 
 	USART1->BRR = UART_BRR;
-	USART1->CR1 |= USART_CR1_UE | // USART1 ON
-					USART_CR1_TE | // TX ON
-					USART_CR1_RE | // RX ON
-					USART_CR1_RXNEIE; // RX Interrupt  ON
+	USART1->CR1 |=	USART_CR1_UE |		// USART1 ON
+					USART_CR1_TE |		// TX ON
+					USART_CR1_RE |		// RX ON
+					USART_CR1_RXNEIE;	// RX Interrupt  ON
 
 	RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 	GPIOA->CRH &= ~(GPIO_CRH_CNF9 |

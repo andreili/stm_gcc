@@ -20,7 +20,7 @@ private:
 	static int		m_rx_size;
 	static int		m_rx_pos;
 
-	static char*	m_tx_buf;
+	static char		m_tx_buf[UART_BUF_SIZE];
 	static int		m_tx_size;
 	static int		m_tx_pos;
 };
