@@ -3,8 +3,6 @@ QT -= core gui opengl
 APP = test_app
 TARGET = test_app.elf
 
-QMAKESPEC = cortex-m3
-
 CONFIG += c++11
 
 QMAKE_LFLAGS = -T$$PWD/ld/stm32f103c8.ld
@@ -14,6 +12,9 @@ DEFINES += STM32F10X_MD
 DESTDIR = ./
 unix:EXT = elf
 win32:EXT = elf.exe
+
+win32:QMAKE_LFLAGS += -L/mingw32/usr/lib/gcc/arm-none-eabi/5.4.1
+linux:QMAKE_LFLAGS += -L/usr/lib/gcc/arm-none-eabi/5.4.0/
 
 createlist.target = all
 createlist.commands += arm-none-eabi-objdump -S $${OUT_PWD}/$${APP}.$${EXT} > $$join(APP,,,".lst") && arm-none-eabi-objcopy -Obinary $${OUT_PWD}/$${APP}.$${EXT} $${OUT_PWD}/$${APP}.bin && arm-none-eabi-nm -nalS --size-sort $${OUT_PWD}/$${APP}.$${EXT} | tail && arm-none-eabi-size $${OUT_PWD}/$${APP}.$${EXT}
